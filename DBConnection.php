@@ -1,7 +1,7 @@
 <?php
     class DBConnection
     {
-        private $host = "localhost", $name = "Roman", $pwd = "<e[nbR", $DB = "short_links";
+        private $host = "localhost", $name = "name", $pwd = "pwd", $DB = "short_links";
         
         private $connection;
 
