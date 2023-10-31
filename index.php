@@ -25,9 +25,11 @@
 
             $result = $mysql->query($query);
 
+            $query = "INSERT INTO `token-statistic`(`token`, `place`, `date`) VALUES ('$token','" . $_SERVER['REMOTE_ADDR'] . "','" . date('Y-m-d G:i:s', time()) . "')";
+            $mysql->query($query);
             $dbconn->close();
             
-	    $url = $result->fetch_assoc()['link'];
+	        $url = $result->fetch_assoc()['link'];
 
             if (strpos($url, 'http://') === null || strpos($url, 'https://') === null)
             {

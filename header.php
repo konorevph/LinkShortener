@@ -7,6 +7,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="token-info.php">Token table</a></li>
+                <li><a href="token-statistic.php">Token statistic</a></li>
                 <li><a href="create-link.php">Create link</a></li>
             </ul>
         </nav>

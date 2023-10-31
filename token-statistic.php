@@ -46,41 +46,27 @@
     </style>
 </head>
 <body>
-    <?php
-        include('header.php');
-    ?>
-    <section>
-        <table>
-            <thead>
-                <tr>
-                    <th>Token</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    ini_set('display_errors', 1);
-                    error_reporting(E_ALL);
-                    // phpinfo();
-                    require_once('DBConnection.php');
+    <?php include("header.php"); ?>
+    <form>
+        <label for="token-input">Введите токен</label>
+        <input type="text" id="token-input" name="token-input" />
+        <button id="show-token-statistic-btn">Показать статистику</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <td>Всего переходов: <span id="counter"></span><td>
+            <tr>
+            <tr>
+                <th>IP</th>
+                <th>Дата</th>
+            </tr>
+        </thead>
+        <tbody id="data-container">
 
-                    $dbconn = new DBConnection();
-                    if ($dbconn->connect() == false){
-                        echo "Connection error";
-                        die();
-                    }
-                    $mysql = $dbconn->getConn();
-                    
-                    $result = $mysql->query("SELECT * from `token_table`");
-
-                    $dbconn->close();
-
-                    foreach ($result as $row) {
-                        echo "<tr><td>" . $row['token'] ."</td><td>" . $row['link'] . "</td></tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
-    </section>
+        </tbody>
+    </table>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/tokenStatistic.js"></script>
 </html>
